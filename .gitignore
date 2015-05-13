@@ -127,10 +127,11 @@ publish/
 # Publish Web Output
 *.Publish.xml
 *.pubxml
+*.publishproj
 
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
-#packages/
+packages/
 
 # Windows Azure Build Output
 csx
@@ -148,7 +149,6 @@ ClientBin/
 *~
 *.dbmdl
 *.[Pp]ublish.xml
-# *.pfx
 *.publishsettings
 
 # RIA/Silverlight projects
@@ -187,7 +187,7 @@ $RECYCLE.BIN/
 ## Python
 #############
 
-*.py[co]
+*.py[cod]
 
 # Packages
 *.egg
