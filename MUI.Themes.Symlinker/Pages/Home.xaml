@@ -15,7 +15,7 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel MinWidth="200">
-                <mui:BBCodeBlock BBCode="This utility is inspired by [url=https://code.google.com/p/symlinker/]Symbolic Link Creator[/url] with the goal to obtain a better UI and no console window popping out. Symlinker was itself based on the idea of a GUI for mklink, Microsoft's tool for managing symbolink links, junction points and hardlinks."/>
+                <mui:BBCodeBlock BBCode="This utility is inspired by [url=https://github.com/amd989/Symlinker]Symbolic Link Creator[/url] with the goal to obtain a better UI and no console window popping out. Symlinker was itself based on the idea of a GUI for mklink, Microsoft's tool for managing symbolink links, junction points and hardlinks."/>
                 <TextBlock/>
                 <TextBlock/>
                 <TextBlock/>
