@@ -10,7 +10,7 @@
         <ScrollViewer>
             <StackPanel MinWidth="200">
                 <TextBlock Text="ABOUT" Style="{StaticResource Heading2}" />
-                <mui:BBCodeBlock BBCode="Based on [url=https://code.google.com/p/symlinker/]this project[/url]."/>
+                <mui:BBCodeBlock BBCode="Based on [url=https://github.com/amd989/Symlinker]this project[/url]."/>
                 <mui:BBCodeBlock BBCode="Using [url=https://github.com/charlesmilette/MUI.Themes]this template[/url]."/>
                 <mui:BBCodeBlock BBCode="The icon comes from [url=https://github.com/alecive/FlatWoken]here[/url]."/>
                 <mui:BBCodeBlock BBCode="You can go to the [url=https://github.com/charlesmilette/MUI.Themes.Symlinker]GitHub page[/url] to get the source code."/>
