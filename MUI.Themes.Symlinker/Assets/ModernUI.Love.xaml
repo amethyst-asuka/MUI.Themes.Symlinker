@@ -14,5 +14,4 @@
             <ImageBrush Opacity=".1" ImageSource="/Assets/background.love.jpg" Stretch="UniformToFill" />
         </Rectangle.Fill>
     </Rectangle>
-
 </ResourceDictionary>

@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
+using System.Windows.Forms;
 
 namespace hackman3vilGuy.CodeProject.VistaSecurity.ElevateWithButton
 {
@@ -56,7 +54,7 @@ namespace hackman3vilGuy.CodeProject.VistaSecurity.ElevateWithButton
             {
                 Process p = Process.Start(startInfo);
             }
-            catch(System.ComponentModel.Win32Exception)
+            catch (System.ComponentModel.Win32Exception)
             {
                 return; //If cancelled, do nothing
             }

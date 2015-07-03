@@ -1,21 +1,10 @@
-﻿using System.IO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
+﻿using FirstFloor.ModernUI.Presentation;
 using FirstFloor.ModernUI.Windows.Controls;
 using hackman3vilGuy.CodeProject.VistaSecurity.ElevateWithButton;
+using System;
+using System.Windows;
+using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace MUI.Themes.Symlinker.Pages
 {
@@ -67,21 +56,24 @@ namespace MUI.Themes.Symlinker.Pages
             {
                 ModernDialog.ShowMessage("You didn't choose a junction point. Please do it.", "Oops!", MessageBoxButton.OK);
             }
-            else 
+            else
             {
                 bool CatchException = false;
-                try {Monitor.Core.Utilities.JunctionPoint.Create(JunctionPoint.Text, BrowsedFolder.Text, true);}
+                try { Monitor.Core.Utilities.JunctionPoint.Create(JunctionPoint.Text, BrowsedFolder.Text, true); }
                 catch (Exception) { CatchException = true; }
-                BrowsedFolder.Text = "You haven't selected a source yet.";
-                JunctionPoint.Text = "You haven't selected a junction point yet.";
                 if (CatchException == true)
                 {
-                    if (!VistaSecurity.IsAdmin()) { ModernDialog.ShowMessage("There was an error creating the junction point! Probably because you are trying to create a junction point in an non-NTFS drive, or you do not have the permissions to write here. (You can restart the program as administrator at the home page)", "Oops!", MessageBoxButton.OK);}
-                    else { ModernDialog.ShowMessage("There was an error creating the junction point! Probably because you are trying to create a junction point in an non-NTFS drive.", "Oops!", MessageBoxButton.OK); }
+                    Color OldColor = AppearanceManager.Current.AccentColor;
+                    AppearanceManager.Current.AccentColor = Color.FromRgb(0xe5, 0x14, 0x00);
+                    if (!VistaSecurity.IsAdmin()) { ModernDialog.ShowMessage("There was an error creating the junction point! Probably because you are trying to create a junction point in an non-NTFS drive, you do not have the permissions to write here or you are creating junction points between drives. (You can restart the program as administrator at the home page)", "Oops!", MessageBoxButton.OK); }
+                    else { ModernDialog.ShowMessage("There was an error creating the junction point! Probably because you are trying to create a junction point in an non-NTFS drive or you are creating junction points between drives.", "Oops!", MessageBoxButton.OK); }
+                    AppearanceManager.Current.AccentColor = OldColor;
                 }
                 else
                 {
                     ModernDialog.ShowMessage("The junction point was created with success.", "Success!", MessageBoxButton.OK);
+                    BrowsedFolder.Text = "You haven't selected a source yet.";
+                    JunctionPoint.Text = "You haven't selected a junction point yet.";
                 }
             }
         }

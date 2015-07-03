@@ -1,8 +1,8 @@
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
-using Microsoft.Win32.SafeHandles;
 
 namespace Monitor.Core.Utilities
 {
@@ -129,13 +129,13 @@ namespace Monitor.Core.Utilities
 
             /// <summary>
             /// Size, in bytes, of the data after the Reserved member. This can be calculated by:
-            /// (4 * sizeof(ushort)) + SubstituteNameLength + PrintNameLength + 
+            /// (4 * sizeof(ushort)) + SubstituteNameLength + PrintNameLength +
             /// (namesAreNullTerminated ? 2 * sizeof(char) : 0);
             /// </summary>
             public ushort ReparseDataLength;
 
             /// <summary>
-            /// Reserved; do not use. 
+            /// Reserved; do not use.
             /// </summary>
             public ushort Reserved;
 
@@ -157,7 +157,7 @@ namespace Monitor.Core.Utilities
 
             /// <summary>
             /// Length, in bytes, of the print name string. If this string is null-terminated,
-            /// PrintNameLength does not include space for the null character. 
+            /// PrintNameLength does not include space for the null character.
             /// </summary>
             public ushort PrintNameLength;
 
@@ -313,7 +313,7 @@ namespace Monitor.Core.Utilities
         /// or some other error occurs</exception>
         public static bool Exists(string path)
         {
-            if (! Directory.Exists(path))
+            if (!Directory.Exists(path))
                 return false;
 
             using (SafeFileHandle handle = OpenReparsePoint(path, EFileAccess.GenericRead))

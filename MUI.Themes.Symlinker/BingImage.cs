@@ -40,6 +40,11 @@ namespace MUI.Themes.Symlinker
                 {
                     cachedBingImage = new BitmapImage(url);
                 }
+                else
+                {
+                    cachedBingImage = new BitmapImage(new Uri("Assets/error.jpeg", UriKind.Relative));
+                    AppearanceManager.Current.AccentColor = Color.FromRgb(0xe5, 0x14, 0x00);
+                }
             }
 
             if (cachedBingImage != null)
@@ -72,18 +77,10 @@ namespace MUI.Themes.Symlinker
                         return new Uri(string.Format(CultureInfo.InvariantCulture, "http://bing.com{0}", url), UriKind.Absolute);
                     }
                 }
-
-                return null;
             }
-            catch (Exception)
-            {
-                AppearanceManager.Current.ThemeSource = AppearanceManager.LightThemeSource;
-                AppearanceManager.Current.AccentColor = Color.FromRgb(0xe5, 0x14, 0x00);
-                ModernDialog.ShowMessage("There was an error retrieving the Bing Image of the day. This is probably caused by your internet connection. Please check it by browsing to any webpage.", "Error", MessageBoxButton.OK);
-                return null;
-            }
+            catch (Exception) { }
+            return null;
         }
-
 
         public static bool GetUseBingImage(DependencyObject o)
         {

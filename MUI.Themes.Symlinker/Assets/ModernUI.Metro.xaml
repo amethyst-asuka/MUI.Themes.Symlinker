@@ -13,5 +13,4 @@
             <ImageBrush Opacity="25" ImageSource="/Assets/background.metro.png" Stretch="UniformToFill" />
         </Rectangle.Fill>
     </Rectangle>
-
 </ResourceDictionary>

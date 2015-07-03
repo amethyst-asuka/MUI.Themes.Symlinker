@@ -13,5 +13,4 @@
             <ImageBrush Opacity=".5" ImageSource="/Assets/background.windows8.1.jpg" Stretch="UniformToFill" />
         </Rectangle.Fill>
     </Rectangle>
-
 </ResourceDictionary>

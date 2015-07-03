@@ -13,5 +13,4 @@
             <ImageBrush Opacity=".1" ImageSource="/Assets/background.kitty.png" Stretch="None"  AlignmentX="Right" AlignmentY="Bottom" />
         </Rectangle.Fill>
     </Rectangle>
-
 </ResourceDictionary>

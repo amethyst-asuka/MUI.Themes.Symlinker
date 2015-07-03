@@ -1,22 +1,12 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
+﻿using FirstFloor.ModernUI.Presentation;
+using FirstFloor.ModernUI.Windows.Controls;
 using hackman3vilGuy.CodeProject.VistaSecurity.ElevateWithButton;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MUI.Themes.Symlinker.Pages
 {
@@ -50,14 +40,14 @@ namespace MUI.Themes.Symlinker.Pages
 
         private void Hard_Link(object sender, RoutedEventArgs e)
         {
-                SaveFileDialog Save = new SaveFileDialog();
-                Save.CheckPathExists = true;
-                Save.ValidateNames = true;
-                Nullable<bool> FileSelected = Save.ShowDialog();
-                if (FileSelected == true)
-                {
-                    HardLink.Text = Save.FileName;
-                }
+            SaveFileDialog Save = new SaveFileDialog();
+            Save.CheckPathExists = true;
+            Save.ValidateNames = true;
+            Nullable<bool> FileSelected = Save.ShowDialog();
+            if (FileSelected == true)
+            {
+                HardLink.Text = Save.FileName;
+            }
         }
 
         private void HardLink_Create(object sender, RoutedEventArgs e)
@@ -70,24 +60,28 @@ namespace MUI.Themes.Symlinker.Pages
             {
                 ModernDialog.ShowMessage("You didn't choose a hard link. Please do it.", "Oops!", MessageBoxButton.OK);
             }
-            else 
+            else
             {
                 bool CatchException = false;
-                try {
-                    if (File.Exists(HardLink.Text)) { File.Delete(HardLink.Text); } 
+                try
+                {
+                    if (File.Exists(HardLink.Text)) { File.Delete(HardLink.Text); }
                     MUI.Themes.Symlinker.HardLink.CreateHardLink(HardLink.Text, BrowsedFile.Text, IntPtr.Zero);
                 }
                 catch (Exception) { CatchException = true; }
-                BrowsedFile.Text = "You haven't selected a source yet.";
-                HardLink.Text = "You haven't selected a hard link yet.";
                 if (CatchException == true)
                 {
-                    if (!VistaSecurity.IsAdmin()) { ModernDialog.ShowMessage("There was an error creating the hard link! Probably because you are trying to create a hard link in an non-NTFS drive, or you do not have the permissions to write here. (You can restart the program as administrator at the home page)", "Oops!", MessageBoxButton.OK);}
-                    else { ModernDialog.ShowMessage("There was an error creating the hard link! Probably because you are trying to create a hard link in an non-NTFS drive.", "Oops!", MessageBoxButton.OK); }
+                    Color OldColor = AppearanceManager.Current.AccentColor;
+                    AppearanceManager.Current.AccentColor = Color.FromRgb(0xe5, 0x14, 0x00);
+                    if (!VistaSecurity.IsAdmin()) { ModernDialog.ShowMessage("There was an error creating the hard link! Probably because you are trying to create a hard link in an non-NTFS drive, you do not have the permissions to write here or you are creating links between drives. (You can restart the program as administrator at the home page)", "Oops!", MessageBoxButton.OK); }
+                    else { ModernDialog.ShowMessage("There was an error creating the hard link! Probably because you are trying to create a hard link in an non-NTFS drive or you are creating links between drives.", "Oops!", MessageBoxButton.OK); }
+                    AppearanceManager.Current.AccentColor = OldColor;
                 }
                 else
                 {
                     ModernDialog.ShowMessage("The hard link was created with success.", "Success!", MessageBoxButton.OK);
+                    BrowsedFile.Text = "You haven't selected a source yet.";
+                    HardLink.Text = "You haven't selected a hard link yet.";
                 }
             }
         }
