@@ -70,10 +70,11 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>2C5A5840A7BF7EBE7EE1E00798916989D32EEFC0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>C9CB90F998DEE85BE856790E9D81C0F23BB93D54</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Signature.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
