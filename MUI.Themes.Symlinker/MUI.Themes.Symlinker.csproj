@@ -34,7 +34,7 @@
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.6.0</ApplicationVersion>
+    <ApplicationVersion>1.0.7.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -70,11 +70,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>C9CB90F998DEE85BE856790E9D81C0F23BB93D54</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2C5A5840A7BF7EBE7EE1E00798916989D32EEFC0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>Signature.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -116,6 +115,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="HardLink.cs" />
+    <Compile Include="Content\Ms-PL.xaml.cs">
+      <DependentUpon>Ms-PL.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FileHard.xaml.cs">
       <DependentUpon>FileHard.xaml</DependentUpon>
     </Compile>
@@ -176,6 +178,10 @@
       <DependentUpon>SettingsAppearance.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\SettingsAppearanceViewModel.cs" />
+    <Page Include="Content\Ms-PL.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\FileHard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using static Something.FileSystem.SymbolicLink;
 
 namespace MUI.Themes.Symlinker.Pages
 {
@@ -66,7 +67,7 @@ namespace MUI.Themes.Symlinker.Pages
                 try
                 {
                     if (File.Exists(Symbolink.Text)) { File.Delete(Symbolink.Text); }
-                    MUI.Themes.Symlinker.Symlink.CreateSymbolicLink(Symbolink.Text, BrowsedFile.Text, MUI.Themes.Symlinker.Symlink.SymbolicLink.File);
+                    CreateFileLink(Symbolink.Text, BrowsedFile.Text);
                 }
                 catch (Exception) { CatchException = true; }
                 if (CatchException == true)

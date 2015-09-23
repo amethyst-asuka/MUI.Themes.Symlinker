@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using static Something.FileSystem.SymbolicLink;
 
 namespace MUI.Themes.Symlinker.Pages
 {
@@ -63,7 +64,7 @@ namespace MUI.Themes.Symlinker.Pages
                 try
                 {
                     if (Directory.Exists(Symbolink.Text)) { Directory.Delete(Symbolink.Text, true); }
-                    MUI.Themes.Symlinker.Symlink.CreateSymbolicLink(Symbolink.Text, BrowsedFolder.Text, MUI.Themes.Symlinker.Symlink.SymbolicLink.Directory);
+                    CreateDirectoryLink(Symbolink.Text, BrowsedFolder.Text);
                 }
                 catch (Exception) { CatchException = true; }
                 if (CatchException == true)
