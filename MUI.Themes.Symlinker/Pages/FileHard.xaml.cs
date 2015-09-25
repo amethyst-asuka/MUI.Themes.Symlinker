@@ -62,14 +62,9 @@ namespace MUI.Themes.Symlinker.Pages
             }
             else
             {
-                bool CatchException = false;
-                try
-                {
-                    if (File.Exists(HardLink.Text)) { File.Delete(HardLink.Text); }
-                    MUI.Themes.Symlinker.HardLink.CreateHardLink(HardLink.Text, BrowsedFile.Text, IntPtr.Zero);
-                }
-                catch (Exception) { CatchException = true; }
-                if (CatchException == true)
+                if (File.Exists(HardLink.Text)) { File.Delete(HardLink.Text); }
+                bool Sucess = MUI.Themes.Symlinker.HardLink.CreateHardLink(HardLink.Text, BrowsedFile.Text, IntPtr.Zero);
+                if (Sucess == false)
                 {
                     Color OldColor = AppearanceManager.Current.AccentColor;
                     AppearanceManager.Current.AccentColor = Color.FromRgb(0xe5, 0x14, 0x00);
