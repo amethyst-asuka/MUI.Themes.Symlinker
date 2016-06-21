@@ -136,8 +136,6 @@
       <DependentUpon>SettingsAppearance.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\SettingsAppearanceViewModel.vb" />
-    <Compile Include="HardLink.vb" />
-    <Compile Include="JunctionPoint.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -171,7 +169,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SymbolicLink.vb" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Assets\ModernUI.BingImage.xaml">

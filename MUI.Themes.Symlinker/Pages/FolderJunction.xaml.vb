@@ -4,6 +4,7 @@ Imports System.Windows
 Imports System.Windows.Forms
 Imports System.Windows.Media
 Imports Microsoft.VisualBasic.Windows.Forms
+Imports Microsoft.VisualBasic.FileIO.SymLinker
 
 Namespace Pages
     ''' <summary>
@@ -47,7 +48,7 @@ Namespace Pages
             Else
                 Dim CatchException As Boolean = False
                 Try
-                    Monitor.Core.Utilities.JunctionPoint.Create(JunctionPoint.Text, BrowsedFolder.Text, True)
+                    FileIO.SymLinker.JunctionPoint.Create(JunctionPoint.Text, BrowsedFolder.Text, True)
                 Catch generatedExceptionName As Exception
                     CatchException = True
                 End Try

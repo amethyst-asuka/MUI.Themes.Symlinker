@@ -4,7 +4,7 @@ Imports System.IO
 Imports System.Windows
 Imports System.Windows.Controls
 Imports System.Windows.Media
-Imports MUI.Themes.Symlinker.Something.FileSystem.SymbolicLink
+Imports Microsoft.VisualBasic.FileIO.SymLinker
 Imports Microsoft
 Imports Microsoft.VisualBasic.Windows.Forms
 

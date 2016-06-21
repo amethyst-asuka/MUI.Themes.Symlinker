@@ -6,6 +6,7 @@ Imports System.Windows
 Imports System.Windows.Controls
 Imports System.Windows.Media
 Imports Microsoft.VisualBasic.Windows.Forms
+Imports Microsoft.VisualBasic.FileIO.SymLinker
 
 Namespace Pages
     ''' <summary>
@@ -52,7 +53,7 @@ Namespace Pages
                 If File.Exists(HardLink.Text) Then
                     File.Delete(HardLink.Text)
                 End If
-                Dim Sucess As Boolean = Global.MUI.Themes.Symlinker.CreateHardLink(HardLink.Text, BrowsedFile.Text, IntPtr.Zero)
+                Dim Sucess As Boolean = CreateHardLink(HardLink.Text, BrowsedFile.Text, IntPtr.Zero)
                 If Sucess = False Then
                     Dim OldColor As Color = AppearanceManager.Current.AccentColor
                     AppearanceManager.Current.AccentColor = Color.FromRgb(&HE5, &H14, &H0)

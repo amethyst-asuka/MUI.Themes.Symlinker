@@ -7,7 +7,7 @@ Imports FirstFloor.ModernUI.Windows.Controls
 Imports Microsoft
 Imports Microsoft.VisualBasic.Windows.Forms
 Imports Microsoft.Win32
-Imports MUI.Themes.Symlinker.Something.FileSystem.SymbolicLink
+Imports Microsoft.VisualBasic.FileIO.SymLinker
 
 Namespace Pages
 
